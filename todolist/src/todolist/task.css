@@ -1,0 +1,12 @@
+.ant-badge-count{
+    position: fixed !important;
+}
+
+.ant-segmented-group{
+    display: flex;
+    gap:20px
+}
+
+.ant-card-head , .ant-card-body{
+padding: 15px !important;
+}
