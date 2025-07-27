@@ -9,7 +9,7 @@ import {
 } from "@ant-design/icons";
 import { Flex, Layout, Menu, Typography, type MenuProps } from "antd";
 import { Outlet, useNavigate } from "react-router-dom";
-import { useAuth, type User } from "../auth/authcontext";
+import { useAuth } from "../auth/authcontext";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../redux/store";
 import { toggleTheme } from "../redux/themeSlice";
@@ -20,7 +20,6 @@ export default function Mainhomecomponent() {
   const dispatch = useDispatch();
   const theme = useSelector((state: RootState) => state.theme.mode);
   const rawuserdata: string = localStorage.getItem("user") || "";
-  const userdata: User = JSON.parse(rawuserdata);
 
   const [collapsed, setCollapsed] = useState<boolean>(false);
 
@@ -58,7 +57,7 @@ export default function Mainhomecomponent() {
     {
       key: "4",
       icon: <UserOutlined />,
-      label: userdata.email || "",
+      label: rawuserdata !== "" ? JSON.parse(rawuserdata).email : "",
       children: [
         {
           key: "5",
