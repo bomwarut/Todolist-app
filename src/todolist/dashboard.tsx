@@ -110,7 +110,7 @@ export default function Dashboardcomponent() {
                 gap={5}
                 align="center"
                 className="overflow-auto"
-                
+                style={{ maxHeight: "calc(100vh - 233px)" }}
               >
                 {tasksnotstart.length > 0 &&
                   tasksnotstart.map(
@@ -141,7 +141,7 @@ export default function Dashboardcomponent() {
                 gap={5}
                 align="center"
                 className="overflow-auto"
-                
+                style={{ maxHeight: "calc(100vh - 233px)" }}
               >
                 {tasksondue.map(
                   (item, index) =>
@@ -153,6 +153,7 @@ export default function Dashboardcomponent() {
                         style={{ width: 300 }}
                       >
                         <Typography.Text>{item.description}</Typography.Text>
+                        <Progress percent={item.progress} />
                       </Card>
                     )
                 )}
@@ -175,7 +176,7 @@ export default function Dashboardcomponent() {
                 gap={5}
                 align="center"
                 className="overflow-auto"
-                
+                style={{ maxHeight: "calc(100vh - 233px)" }}
               >
                 {taskscomplete.map(
                   (item, index) =>

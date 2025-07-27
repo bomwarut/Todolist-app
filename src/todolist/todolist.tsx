@@ -195,6 +195,7 @@ export default function Todolistcomponent() {
             padding: "15px 10px 10px 10px",
             background: theme === "light" ? "white" : "",
           }}
+          className="overflow-x-auto overflow-y-hidden gap-4"
         >
           <Segmented
             options={categorylist}
@@ -202,12 +203,18 @@ export default function Todolistcomponent() {
             onChange={(v) => selectcategory(v)}
           />
           <Button
+            style={{ minWidth: "32px" }}
             onClick={() => opencategorymodal(0)}
             icon={<PlusOutlined />}
           />
         </Layout.Header>
         <Layout.Content style={{ height: "calc(100vh - 109px)" }}>
-          <Flex gap={5} justify="space-between" style={{ margin: "10px" }}>
+          <Flex
+            gap={5}
+            justify="space-between"
+            style={{ margin: "10px" }}
+            className="overflow-auto"
+          >
             <Flex gap={5}>
               <Button onClick={() => opencategorymodal(1)}>
                 Edit category <EditOutlined />
@@ -269,8 +276,13 @@ export default function Todolistcomponent() {
               </Button>
             </Empty>
           ) : (
-            <div>
-              <Flex gap={10} wrap justify="center" className="overflow-auto" style={{maxHeight:"calc(100vh - 110px)"}} >
+              <Flex
+                gap={10}
+                wrap
+                justify="center"
+                className="overflow-auto"
+                style={{ maxHeight: "calc(100vh - 140px)" }}
+              >
                 {task.map((item: Task, index: number) => (
                   <Card
                     key={index}
@@ -298,7 +310,6 @@ export default function Todolistcomponent() {
                   </Card>
                 ))}
               </Flex>
-            </div>
           )}
         </Layout.Content>
       </Layout>

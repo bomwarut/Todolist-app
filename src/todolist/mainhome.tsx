@@ -57,7 +57,7 @@ export default function Mainhomecomponent() {
     {
       key: "4",
       icon: <UserOutlined />,
-      label: rawuserdata !== "" ? JSON.parse(rawuserdata).email : "",
+      label: (rawuserdata !== "" && rawuserdata) ? JSON.parse(rawuserdata).email : "",
       children: [
         {
           key: "5",
